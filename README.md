@@ -1,6 +1,7 @@
 # WebHttpBehaviorExtensions
 
-[![wcfwebhttpbehaviorextensions MyGet Build Status](https://www.myget.org/BuildSource/Badge/wcfwebhttpbehaviorextensions?identifier=5172fa2f-2633-4a60-aee4-f554740f8da9)](https://www.myget.org/)
+[![wcfwebhttpbehaviorextensions MyGet Build Status](https://www.myget.org/BuildSource/Badge/wcfwebhttpbehaviorextensions?identifier=5172fa2f-2633-4a60-aee4-f554740f8da9)](https://www.myget.org/)  
+                    [![wcfwebhttpbehaviorextensions Nuget package Status](https://img.shields.io/nuget/vpre/WebHttpBehaviorExtensions.svg)](https://www.nuget.org/packages/WebHttpBehaviorExtensions)
 
 This repository is a simple WebHttpBehavior extension that will allow Typed arguments for method via UriTemplates in WCF Rest services.
 
