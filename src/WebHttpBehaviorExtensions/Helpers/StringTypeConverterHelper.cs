@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Web;
 
 namespace WebHttpBehaviorExtensions.Helpers
 {
@@ -13,7 +10,9 @@ namespace WebHttpBehaviorExtensions.Helpers
             // keep the old value as default.
             result = value;
 
-            if (string.IsNullOrWhiteSpace(Convert.ToString(value)))
+            var stringVal = Convert.ToString(value);
+
+            if (string.IsNullOrWhiteSpace(stringVal))
             {
                 // simply return. A default value is already provided to out parameter.
                 return true;
@@ -22,7 +21,7 @@ namespace WebHttpBehaviorExtensions.Helpers
             try
             {
                 var converter = TypeDescriptor.GetConverter(type);
-                result = converter.ConvertFromString(Convert.ToString(value));
+                result = converter.ConvertFromString(stringVal);
                 return true;
             }
             catch
