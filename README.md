@@ -30,6 +30,41 @@ But if you apply the behavior `TypedUriTemplateBehavior` provided in the core li
         [WebInvoke(Method = "GET", UriTemplate = "/{guid}/Current/{id}")]
         string GetCurrentTime(Guid guid, int id);
 ```
+#### Adding custom behavior to WCF WebHttp binding via configuration file
+To add this behavior you need to add custom behavior extension in the webconfiguration for Endpoint behavior.
+```xml
+    <extensions>
+      <behaviorExtensions>
+        <add name="customWebHttpBehavior" type="WebHttpBehaviorExtensions.TypedUriTemplateBehaviorExtension, WebHttpBehaviorExtensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=Null"/>
+      </behaviorExtensions>
+    </extensions>
+```
+Add declared behavior extension to endpoint behaviors
+```xml
+      <endpointBehaviors>
+        <behavior name="webHttpServiceBehavior">
+          <customWebHttpBehavior/>
+          <webHttp/>
+        </behavior>
+      </endpointBehaviors>
+```
+Add bindings(optional)
+```xml
+  <bindings>
+      <webHttpBinding>
+        <binding name="customHttpBinding" contentTypeMapper="WebHttpBehaviorExtensions.TypedUriTemplateBehaviorWebContentTypeMapper, WebHttpBehaviorExtensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=Null"/>
+      </webHttpBinding>
+    </bindings>
+```
+
+Finally attach the behavior with your service endpoint:
+```xml
+ <service name="WcfWebHttpIISHostingSample.TestService" behaviorConfiguration="ServiceBehavior">
+        <endpoint binding="webHttpBinding" contract="WcfWebHttpIISHostingSample.ITestService" behaviorConfiguration="webHttpServiceBehavior" bindingConfiguration="customHttpBinding"/>
+      </service>
+```
+
+#### Adding custom behavior to WCF WebHttp binding programmatically
 
 Sample of attaching end point behavior in a console service host.
 
@@ -64,4 +99,4 @@ Sample of attaching end point behavior in a console service host.
     }
 ```
 
-Feel free to fork/like/contribute to this library if it helps you saving some time.
+Feel free to fork/like/contribute.
