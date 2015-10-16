@@ -25,9 +25,12 @@ namespace WebHttpBehaviorExtensions
 
         protected override IDispatchMessageFormatter GetRequestDispatchFormatter(OperationDescription operationDescription, ServiceEndpoint endpoint)
         {
-            foreach (var item in operationDescription.Messages[0].Body.Parts)
+            if (operationDescription.SyncMethod.CustomAttributes.Any(x => x.AttributeType == typeof(UriTemplateSafeAttribute)))
             {
-                item.Type = typeof(string);
+                foreach (var item in operationDescription.Messages[0].Body.Parts)
+                {
+                    item.Type = typeof(string);
+                }
             }
 
             return base.GetRequestDispatchFormatter(operationDescription, endpoint);

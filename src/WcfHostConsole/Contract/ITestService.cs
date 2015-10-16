@@ -5,6 +5,7 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 using System.Threading.Tasks;
+using WebHttpBehaviorExtensions;
 
 namespace WcfHostConsole.Contract
 {
@@ -14,14 +15,15 @@ namespace WcfHostConsole.Contract
         [WebInvoke(Method = "GET", UriTemplate = "/Data/{data}")]
         string GetData(string data);
 
-        [WebInvoke(Method = "GET", UriTemplate = "/{id}")]
+        [WebInvoke(Method = "GET", UriTemplate = "/{id}"), UriTemplateSafe]
         string GetValue(Guid id);
 
-        [WebInvoke(Method = "GET", UriTemplate = "/Parent/{id}")]
+        [WebInvoke(Method = "GET", UriTemplate = "/Parent/{id}"), UriTemplateSafe]
         string GetParentId(int id);
 
 
         [WebInvoke(Method = "GET", UriTemplate = "/{guid}/Current/{id}")]
+        [UriTemplateSafe]
         string GetCurrentTime(Guid guid, int id);
     }
 }

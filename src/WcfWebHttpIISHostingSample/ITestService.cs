@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using WebHttpBehaviorExtensions;
 
 namespace WcfWebHttpIISHostingSample
 {
@@ -15,13 +16,16 @@ namespace WcfWebHttpIISHostingSample
         string GetData(string data);
 
         [WebInvoke(Method = "GET", UriTemplate = "/{id}")]
+        [UriTemplateSafe]
         string GetValue(Guid id);
 
         [WebInvoke(Method = "GET", UriTemplate = "/Parent/{id}")]
+        [UriTemplateSafe]
         string GetParentId(int id);
 
 
         [WebInvoke(Method = "GET", UriTemplate = "/{guid}/Current/{id}")]
+        [UriTemplateSafe]
         string GetCurrentTime(Guid guid, int id);
     }
 }

@@ -32,6 +32,11 @@ namespace WebHttpBehaviorExtensions
 
         private object[] CastCorrections(object[] inputs)
         {
+            if(!this.info.CustomAttributes.Any(x => x.AttributeType == typeof(UriTemplateSafeAttribute)))
+            {
+                return inputs;
+            }
+
             var outarray = new object [inputs.Length];
 
             var paramInfo = this.info.GetParameters();
