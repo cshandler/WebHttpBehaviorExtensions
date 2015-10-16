@@ -3,6 +3,12 @@
 [![wcfwebhttpbehaviorextensions MyGet Build Status](https://www.myget.org/BuildSource/Badge/wcfwebhttpbehaviorextensions?identifier=5172fa2f-2633-4a60-aee4-f554740f8da9)](https://www.myget.org/)  
                     [![wcfwebhttpbehaviorextensions Nuget package Status](https://img.shields.io/nuget/vpre/WebHttpBehaviorExtensions.svg)](https://www.nuget.org/packages/WebHttpBehaviorExtensions)
 
+### List of Behaviors the library provides
+- EnableCorsBehavior
+- TypedUriTemplateBehavior
+
+(TODO: Add documentation for usage of EnableCorsBehavior)
+
 This repository is a simple WebHttpBehavior extension that will allow Typed arguments for method via UriTemplates in WCF Rest services.
 
 >In WCF the WebHttpBinding for REST support are restricted to use Types arguments in contract operations which are marked with UriTemplates. This custom library provides a custom WebHttpBehavior that overrids the run time checks and allow other types in method signatures. The Idea came from one of the question asked on [Stackoverflow here](http://stackoverflow.com/questions/33018220/how-can-i-use-strongly-typed-parameters-in-the-uri-path-in-wcf-with-webhttpbindi, "How can I use strongly typed parameters in the uri path in WCF with WebHttpBinding").

@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CORS\CustomHeaderMessageInspector.cs" />
+    <Compile Include="CORS\EnableCorsBehavior.cs" />
     <Compile Include="TypedUriTemplateBehaviorExtension.cs" />
     <Compile Include="Internals\TypeCastOperationBehavior.cs" />
     <Compile Include="Helpers\StringTypeConverterHelper.cs" />
