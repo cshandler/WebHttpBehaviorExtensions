@@ -23,17 +23,20 @@ Default provided method operations in WebHttpBindings(REST) are restricted to st
         [WebInvoke(Method = "GET", UriTemplate = "/Data/{data}")]
         string GetData(string data);
 ```
-But if you apply the behavior `TypedUriTemplateBehavior` provided in the core library. This will allow method declarations to have other types that can be represeted as string and automatically cast run time objects to their respective types.
+But if you apply the behavior `TypedUriTemplateBehavior` provided in the core library. This will allow method declarations to have other types that can be represeted as string and automatically cast run time objects to their respective types. To enable the behavior on selected operations mark them with attribute `UriTemplateSafeAttribute` see below samples:
 
 ```csharp
         [WebInvoke(Method = "GET", UriTemplate = "/{id}")]
+        [UriTemplateSafe]
         string GetValue(Guid id);
 
         [WebInvoke(Method = "GET", UriTemplate = "/Parent/{id}")]
+        [UriTemplateSafe]
         string GetParentId(int id);
 
 
         [WebInvoke(Method = "GET", UriTemplate = "/{guid}/Current/{id}")]
+        [UriTemplateSafe]
         string GetCurrentTime(Guid guid, int id);
 ```
 #### Adding custom behavior to WCF WebHttp binding via configuration file
