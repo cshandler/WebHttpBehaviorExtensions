@@ -17,7 +17,7 @@ namespace WebHttpBehaviorExtensions
                 if (operation.Behaviors.Contains(typeof(TypeCastOperationBehavior)))
                     continue;
 
-                operation.Behaviors.Insert(0,new TypeCastOperationBehavior());
+                operation.Behaviors.Add(new TypeCastOperationBehavior());
             }
 
             base.ApplyDispatchBehavior(endpoint, endpointDispatcher);
