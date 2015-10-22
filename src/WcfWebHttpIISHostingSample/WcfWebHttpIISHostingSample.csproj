@@ -71,6 +71,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Security\BasicAuthenticationProvider.cs" />
+    <Compile Include="Security\OAuthAuthenticationProvider.cs" />
+    <Compile Include="Security\OAuth\OAuthBase.cs" />
     <Compile Include="TestService.svc.cs">
       <DependentUpon>TestService.svc</DependentUpon>
     </Compile>

@@ -43,8 +43,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\UriTemplateSafeAttribute.cs" />
+    <Compile Include="Security\AuthenticationHeader.cs" />
+    <Compile Include="Security\Authorization\RestAuthorizationManager.cs" />
+    <Compile Include="Security\AuthContext.cs" />
     <Compile Include="CORS\CustomHeaderMessageInspector.cs" />
     <Compile Include="CORS\EnableCorsBehavior.cs" />
+    <Compile Include="Security\IAuthenticationProvider.cs" />
     <Compile Include="TypedUriTemplateBehaviorExtension.cs" />
     <Compile Include="Internals\TypeCastOperationBehavior.cs" />
     <Compile Include="Helpers\StringTypeConverterHelper.cs" />

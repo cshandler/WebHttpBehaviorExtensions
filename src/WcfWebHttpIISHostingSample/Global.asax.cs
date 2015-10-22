@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
+using WebHttpBehaviorExtensions.Security;
 
 namespace WcfWebHttpIISHostingSample
 {
@@ -15,6 +16,8 @@ namespace WcfWebHttpIISHostingSample
         protected void Application_Start(object sender, EventArgs e)
         {
             RouteTable.Routes.Add(new ServiceRoute("", new WebServiceHostFactory(), typeof(TestService)));
+
+            AuthContext.SetAuthenticationProvider(() => new BasicAuthenticationProvider());
         }
 
         protected void Session_Start(object sender, EventArgs e)
