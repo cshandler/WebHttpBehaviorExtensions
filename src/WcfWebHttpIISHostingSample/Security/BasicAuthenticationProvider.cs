@@ -39,10 +39,7 @@ namespace WcfWebHttpIISHostingSample
             {
                 //No authorization header was provided, so challenge the client to provide before proceeding:
                 WebOperationContext.Current.OutgoingResponse.Headers.Add("WWW-Authenticate: Basic realm=\" WcfWebHttpIISHostingSample\"");
-                WebOperationContext.Current.OutgoingResponse.StatusCode = HttpStatusCode.Unauthorized;
-                return false;
-                //Throw an exception with the associated HTTP status code equivalent to HTTP status 401
-                //throw new WebFaultException(HttpStatusCode.Unauthorized);
+                throw new WebFaultException(HttpStatusCode.Unauthorized);
             }
         }
     }
